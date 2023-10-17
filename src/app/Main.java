@@ -44,13 +44,15 @@ public class Main {
         SignupViewModel signupViewModel = new SignupViewModel();
 
         FileUserDataAccessObject userDataAccessObject;
+        FileUserDataAccessObject userDataAccessObject2;
         try {
             userDataAccessObject = new FileUserDataAccessObject("./users.csv", new CommonUserFactory());
+            userDataAccessObject2 = new FileUserDataAccessObject("./users.csv", new CommonUserFactory());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject);
+        SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject, userDataAccessObject2);
         views.add(signupView, signupView.viewName);
 
         LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, loggedInViewModel, userDataAccessObject);
