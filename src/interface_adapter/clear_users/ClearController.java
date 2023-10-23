@@ -8,7 +8,7 @@ public class ClearController {
     public ClearController(ClearInputBoundary ClearUseCaseInteractor){
         this.ClearUseCaseInteractor = ClearUseCaseInteractor;
     }
-    public void execute(){
-        ClearUseCaseInteractor.execute();
+    public String execute(){
+        return ClearUseCaseInteractor.execute();
     }
 }

@@ -86,10 +86,11 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
             throw new RuntimeException(e);
         }
     }
-    public void delete() {
+    public ArrayList<String> delete() {
         ArrayList<String> users = new ArrayList<>(this.accounts.keySet());
         this.accounts.clear();
         this.save();
+        return users;
     }
 
 

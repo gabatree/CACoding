@@ -1,5 +1,7 @@
 package interface_adapter.signup;
 
+import java.util.ArrayList;
+
 public class SignupState {
     private String username = "";
     private String usernameError = null;
@@ -8,6 +10,8 @@ public class SignupState {
     private String repeatPassword = "";
     private String repeatPasswordError = null;
 
+    private ArrayList<String> users;
+
     public SignupState(SignupState copy) {
         username = copy.username;
         usernameError = copy.usernameError;
@@ -15,11 +19,16 @@ public class SignupState {
         passwordError = copy.passwordError;
         repeatPassword = copy.repeatPassword;
         repeatPasswordError = copy.repeatPasswordError;
+        users = copy.users;
     }
 
     // Because of the previous copy constructor, the default constructor must be explicit.
     public SignupState() {
     }
+
+    public ArrayList<String> getUsers() {return users;}
+
+    public void setUsers(ArrayList<String> users){this.users = users;}
 
     public String getUsername() {
         return username;
